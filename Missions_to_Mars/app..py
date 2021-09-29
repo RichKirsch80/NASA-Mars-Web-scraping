@@ -14,9 +14,9 @@ def index():
 
 @app.route('/scrape')
 def scraper():
-    listings = mongo.db.listings
-    listings_data = scrape_mars.scrape()
-    listings.update({}, listings_data, upsert=True)
+    #listings = mongo.db.listings
+    #listings_data = scrape_mars.scrape()
+    #listings.update({}, listings_data, upsert=True)
     
 
 if __name__ == "__main__":

@@ -2,19 +2,21 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
 from webdriver_manager.chrome import ChromeDriverManager
+import pandas as pd
+import time
 
 def scrape():
     # browser = init_browser()
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
-
+    mars_news = {}
     url = "https://redplanetscience.com/"
     browser.visit(url)
-
+    time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     article = soup.find('div', class_='list_text')
-    title = article.find('div', class_="content_title").get_text()
+    news_title = article.find('div', class_="content_title").get_text()
     body = article.find('div', class_="article_teaser_body").get_text()
     
     #Featured Image
@@ -27,7 +29,6 @@ def scrape():
     featured_image_url = image['src']
 
     #Mars Facts
-    import pandas as pd
     url2 = "https://galaxyfacts-mars.com/"
     tables = pd.read_html(url2)
     df = tables[0] 
@@ -40,22 +41,31 @@ def scrape():
     browser.visit(url3)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
+    boxes = soup.find_all('div', class_="result-list")
+    res_titles = list()
+    img_urls = list()
+    for box in boxes:
+        titles = box.find_all('h3')
+        links = box.find_all('a', class_="itemLink product-item")
+            
+        for title,link in zip(titles,links):
+            res_titles.append(title.text)
+            img_click = link['href']
+            browser.click_link_by_partial_text(title.text)
 
-    boxes = soup.find('div', class_="result-list")
-    title = boxes.find('h3').text
-    link = boxes.find('a', class_="itemLink product-item")
-    img_click = link['href']
-    browser.click_link_by_partial_text(title)
-
-    html = browser.html
-    soup = BeautifulSoup(html, "html.parser")
-    sample = soup.find("a", text="Sample")
-    sample_url = sample['href']
-    img_url = url3 + sample_url
-    browser.back()
+            html = browser.html
+            soup = BeautifulSoup(html, "html.parser")
+            sample = soup.find("a", text="Sample")
+            sample_url = sample['href']
+            img_url = url3 + sample_url
+            img_urls.append(img_url)
+            browser.back()
+    
+    hemisphere_image_urls = [
+    {"title": res_titles,
+     "img_url": img_urls},]
 
     # Quit the browser
     browser.quit()
-    
-    return listings
+    return mars_news
     
