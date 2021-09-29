@@ -25,8 +25,8 @@ def scrape():
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     header = soup.find('div', class_='header')
-    image = header.find('img')
-    featured_image_url = image['src']
+    image = header.find('img', class_="headerimage fade-in")
+    featured_image_url = url1 + image['src']
 
     #Mars Facts
     url2 = "https://galaxyfacts-mars.com/"

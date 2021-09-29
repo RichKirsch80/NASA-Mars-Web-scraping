@@ -11,9 +11,6 @@ Scrapes the Mars News Site and collect the latest News Title and Paragraph Text.
 JPL Mars Space Images - Featured Image
 Used splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called featured_image_url.
 
-# Example:
-featured_image_url = 'https://spaceimages-mars.com/image/featured/mars2.jpg'
-
 Mars Facts
 Visits the Mars Facts webpage and uses Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
 Saved into dataframe, formatted and coverted to html.
@@ -22,7 +19,7 @@ Mars Hemispheres
 Visits the astrogeology site here to obtain high resolution images for each of Mar's hemispheres.
 Saves both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. 
 Uses a Python dictionary to store the data using the keys img_url and title.
-]
+
 Step 2 - MongoDB and Flask Application
 Uses MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
 
