@@ -6,15 +6,19 @@ import pandas as pd
 import time
 
 def scrape():
-    # browser = init_browser()
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
+    
     mars_news = {}
+
     url = "https://redplanetscience.com/"
+
     browser.visit(url)
     time.sleep(2)
+
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
+
     article = soup.find('div', class_='list_text')
     news_title = article.find('div', class_="content_title").get_text()
     body = article.find('div', class_="article_teaser_body").get_text()
@@ -22,6 +26,7 @@ def scrape():
     #Featured Image
     url1 = "https://spaceimages-mars.com/"
     browser.visit(url1)
+    time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     header = soup.find('div', class_='header')
@@ -35,10 +40,12 @@ def scrape():
     df.columns = ['Comparison', 'Mars', 'Earth']
     df = df.iloc[1:]
     df.set_index('Comparison', inplace=True)
+    df.to_html("table.html")
 
     #Mars Hemispheres
     url3 = "https://marshemispheres.com/"
     browser.visit(url3)
+    time.sleep(2)
     html = browser.html
     soup = BeautifulSoup(html, "html.parser")
     boxes = soup.find_all('div', class_="result-list")
@@ -61,9 +68,12 @@ def scrape():
             img_urls.append(img_url)
             browser.back()
     
-    hemisphere_image_urls = [
-    {"title": res_titles,
-     "img_url": img_urls},]
+    mars_news = {"title": res_titles,
+     "img_url": img_urls,
+     "news": news_title,
+     "body": body,
+     "feat_img": featured_image_url}
+    
 
     # Quit the browser
     browser.quit()
