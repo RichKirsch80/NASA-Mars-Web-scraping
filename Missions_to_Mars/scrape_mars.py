@@ -40,8 +40,7 @@ def scrape():
     df.columns = ['Comparison', 'Mars', 'Earth']
     df = df.iloc[1:]
     df.set_index('Comparison', inplace=True)
-    #df.to_html("table.html") commented out
-    table_html =df.to_html() # added this line
+    table_html =df.to_html() 
 
     #Mars Hemispheres
     url3 = "https://marshemispheres.com/"
@@ -73,7 +72,7 @@ def scrape():
      "img_url": img_urls,
      "news": news_title,
      "body": body,
-     "table_html":table_html, # corrected this line with the new addition in line 44
+     "table_html":table_html,
      "feat_img": featured_image_url}
     
 
