@@ -1,8 +1,10 @@
-# web-scraping-challenge
+Landing Page for Mars Info web-scraped from NASA websites
+
+Custom landing page that displays previously scraped data as well as a scrape button to pull most recent data.
 
 Completed an initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 
-Created a Jupyter Notebook file called mission_to_mars.ipynb and use this to complete all of your scraping and analysis tasks. 
+Created a Jupyter Notebook file called mission_to_mars.ipynb and used this to complete all of your scraping and analysis tasks. 
 The following data is scraped from the NASA Mars website.
 
 NASA Mars News
