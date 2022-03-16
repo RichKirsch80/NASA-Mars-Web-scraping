@@ -4,6 +4,8 @@ Landing Page for Mars Info web-scraped from NASA websites
 
 Custom landing page that displays previously scraped data as well as a scrape button to pull most recent data.
 
+![image](https://user-images.githubusercontent.com/85321602/158683436-26581ce8-f7f0-44e7-b33e-f27985410e92.png)
+
 Completed an initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, and Requests/Splinter.
 
 Created a Jupyter Notebook file called mission_to_mars.ipynb and used this to complete all of your scraping and analysis tasks. 
@@ -35,3 +37,14 @@ Stored the return value in Mongo as a Python dictionary.
 Created a root route / that will query your Mongo database and pass the mars data into an HTML template to display the data.
 Created a template HTML file called index.html that will take the mars data dictionary and display all of the data in the 
 appropriate HTML elements.
+
+
+
+
+![image](https://user-images.githubusercontent.com/85321602/158683477-35c3f5d3-8816-4969-8486-ffe58b55f964.png)
+
+![image](https://user-images.githubusercontent.com/85321602/158683525-9c17ff6e-62e5-418a-8e44-70d51533eec3.png)
+
+![image](https://user-images.githubusercontent.com/85321602/158683558-860db9a9-5438-4160-ad3a-5f2ad5c1b8bd.png)
+
+![image](https://user-images.githubusercontent.com/85321602/158683729-b026d322-a1d0-4362-9409-b25c09094e30.png)
