@@ -13,19 +13,26 @@ The following data is scraped from the NASA Mars website.
 
 NASA Mars News
 Scrapes the Mars News Site and collect the latest News Title and Paragraph Text. Assigned both variables for results index.html page.
+
 ![image](https://user-images.githubusercontent.com/85321602/158683477-35c3f5d3-8816-4969-8486-ffe58b55f964.png)
 
 JPL Mars Space Images - Featured Image
 Used splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called featured_image_url.
 
+![image](https://user-images.githubusercontent.com/85321602/158683525-9c17ff6e-62e5-418a-8e44-70d51533eec3.png)
+
 Mars Facts
 Visits the Mars Facts webpage and uses Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
 Saved into dataframe, formatted and coverted to html.
+
+![image](https://user-images.githubusercontent.com/85321602/158683558-860db9a9-5438-4160-ad3a-5f2ad5c1b8bd.png)
 
 Mars Hemispheres
 Visits the astrogeology site here to obtain high resolution images for each of Mar's hemispheres.
 Saves both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. 
 Uses a Python dictionary to store the data using the keys img_url and title.
+
+![image](https://user-images.githubusercontent.com/85321602/158683729-b026d322-a1d0-4362-9409-b25c09094e30.png)
 
 Step 2 - MongoDB and Flask Application
 Uses MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
@@ -38,14 +45,3 @@ Stored the return value in Mongo as a Python dictionary.
 Created a root route / that will query your Mongo database and pass the mars data into an HTML template to display the data.
 Created a template HTML file called index.html that will take the mars data dictionary and display all of the data in the 
 appropriate HTML elements.
-
-
-
-
-
-
-![image](https://user-images.githubusercontent.com/85321602/158683525-9c17ff6e-62e5-418a-8e44-70d51533eec3.png)
-
-![image](https://user-images.githubusercontent.com/85321602/158683558-860db9a9-5438-4160-ad3a-5f2ad5c1b8bd.png)
-
-![image](https://user-images.githubusercontent.com/85321602/158683729-b026d322-a1d0-4362-9409-b25c09094e30.png)
