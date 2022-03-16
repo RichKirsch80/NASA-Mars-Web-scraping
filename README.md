@@ -13,6 +13,7 @@ The following data is scraped from the NASA Mars website.
 
 NASA Mars News
 Scrapes the Mars News Site and collect the latest News Title and Paragraph Text. Assigned both variables for results index.html page.
+![image](https://user-images.githubusercontent.com/85321602/158683477-35c3f5d3-8816-4969-8486-ffe58b55f964.png)
 
 JPL Mars Space Images - Featured Image
 Used splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called featured_image_url.
@@ -41,7 +42,7 @@ appropriate HTML elements.
 
 
 
-![image](https://user-images.githubusercontent.com/85321602/158683477-35c3f5d3-8816-4969-8486-ffe58b55f964.png)
+
 
 ![image](https://user-images.githubusercontent.com/85321602/158683525-9c17ff6e-62e5-418a-8e44-70d51533eec3.png)
 
